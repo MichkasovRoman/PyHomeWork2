@@ -5,3 +5,28 @@
 
 # 5 -> 1 0 1 1 0
 
+n = int(input('Введите количество монеток: '))
+print('')
+print('Обозначим за 0 и 1 монеты, лежащие орлом и решкой вверх соответственно.')
+print('Тогда получим: ')
+
+import random      # заполнение списка псевдослучайными целыми числами в диапазоне от 0 до 1
+listOfcoins = []
+for coin in range(1, n + 1):
+    listOfcoins.append(random.randint(0, 1))
+print(listOfcoins)
+print('')
+
+count0 = 0 # количество монет, лежащих решкой вверх 
+i = 0
+while i < n:
+    if listOfcoins[i] == 0:
+        count0 = count0 + 1
+    i = i + 1
+
+count1 = n - count0  # количество монет, лежащих орлом вверх 
+
+if count0 <= count1:
+    print('Количество монет, которые необходимо перевернуть:', count0)
+else:
+    print('Количество монет, которые необходимо перевернуть:', count1)
